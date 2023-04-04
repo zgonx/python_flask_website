@@ -1,21 +1,65 @@
 {% extends "base.html" %} {% block title %}Changed{% endblock %} {% block
 content%}
-<h1 align = "center">Notes</h1>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<h1 align="center">Notes</h1>
 <ul class="list-group list-group-flush" id="notes">
-    {% for note in user.notes %}
-    <li class="list-group-item">
-        {{note.data}}
-        <button type="button" class="close" onClick="deleteNote({{note.id}})">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </li>
-    {%endfor%}
+  {% for note in user.notes %}
+  <li class="list-group-item">
+    <p style="font-size: 26px"><b>{{note.title}}</b></p>
+  </li>
+
+  <li class="list-group-item">
+    {{note.data}}
+    <button
+      type="button"
+      class="fa fa-trash"
+      onClick="deleteNote({{note.id}})"
+      style="float: right"
+    ></button>
+    <button
+      type="button"
+      class="fa fa-pencil-square-o"
+      onClick="deleteNote({{note.id}})"
+      style="float: right"
+      margin-left="10px"
+    ></button>
+  </li>
+  {%endfor%}
 </ul>
-<form method="POST">
-    <textarea name ="note" class="form-control"></textarea>
-    <br />
-    <div align="center">
-        <button type="submit" clas="btn btn-primary">Add Note</button>
+<div class="container mt-3">
+  <form action="/" method="post">
+    <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label"
+        >Note Title</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          id="formGroupExampleInput"
+          placeholder="Enter Note Title"
+        />
+      </div>
     </div>
-</form>
+    <div class="form-group row">
+      <label for="note-desc" class="col-sm-2 col-form-label"
+        >Note Description</label
+      >
+      <div class="col-sm-10">
+        <textarea
+          class="form-control"
+          rows="4"
+          name="note"
+          placeholder="Enter Note Description"
+        ></textarea>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-dark">Add Note</button>
+  </form>
+</div>
 {% endblock %}
