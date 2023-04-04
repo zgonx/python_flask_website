@@ -33,3 +33,5 @@ If you would like to contribute to this project, please follow these steps:
 4. Push to the branch (git push origin feature/fooBar)
 5. Create a new Pull Request.
 
+## Acknowledgments
+This app was created following a tutorial by [Tech with Tim](https://www.youtube.com/watch?v=dam0GPOAvVI).
