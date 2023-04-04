@@ -37,3 +37,20 @@ def delete_note():
             db.session.delete(note)
             db.session.commit()
     return jsonify({})
+
+
+@views.route('/update/<int:id>', methods=['GET', 'POST'])
+@login_required
+def updateNote(id):
+    if request.method == 'POST':
+        title = request.form['title']
+        data = request.form['note']
+        note = Note.query.filter_by(id=id).first()
+        note.title = title
+        note.data = data
+        db.session.add(note)
+        db.session.commit()
+        return render_template("home.html", user=current_user)
+
+    note_update = Note.query.filter_by(id=id).first()
+    return render_template("update.html", nu=note_update, user=current_user)
