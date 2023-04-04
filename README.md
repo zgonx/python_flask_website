@@ -1,5 +1,6 @@
 # Flask Notes App
 This is a simple Flask Notes App that allows users to create, read, update and delete their notes.
+Designed using Model-View-Controller (MVC)
 
 ## Getting Started
 To run this application, please follow these steps:
