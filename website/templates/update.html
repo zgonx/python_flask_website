@@ -13,11 +13,17 @@
   </div>
   <div class="form-group">
     <label for="message-text" class="col-form-label">Note Text:</label>
-    <textarea class="form-control" id="message-text" name="note">
+    <textarea
+      type="text"
+      class="form-control"
+      id="message-text"
+      name="note"
+      value="{{nu.text}}"
+    >
 {{nu.text}}</textarea
     >
   </div>
-  <button type="submit" class="btn btn-primary">update</button>
+  <button type="submit" class="btn btn-primary rounded-pill">Update</button>
 </form>
 
 {% endblock content %}
